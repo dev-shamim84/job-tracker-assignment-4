@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Tracker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container mx-auto px-4 ">
+        <h1 class="text-[#002C5C] font-bold text-3xl">Job Tracker App</h1>
+        <div class="grid grid-cols-3 my-4 gap-5">
+          <div>
+            <div
+              class="bg-gray-100 rounded-xl p-6 hover:shadow shadow-blue-500 duration-400"
+            >
+              <h3 class="font-medium text-[#002C5C]">Total</h3>
+              <p class="font-bold text-[#002C5C]" id="total">0</p>
+            </div>
+          </div>
+          <div>
+            <div
+              class="bg-gray-100 rounded-xl p-6 hover:shadow shadow-blue-500 duration-400"
+            >
+              <h3 class="font-medium text-[#002C5C]">Interview</h3>
+              <p class="font-bold text-green-600" id="interview">0</p>
+            </div>
+          </div>
+          <div>
+            <div
+              class="bg-gray-100 rounded-xl p-6 hover:shadow shadow-blue-500 duration-400"
+            >
+              <h3 class="font-medium text-[#002C5C]">Rejected</h3>
+              <p class="font-bold text-red-400" id="rejected">0</p>
+            </div>
+          </div>
+        </div>
+        <hr class="my-2 text-gray-200" />
+      </div>
+    </header>
+    <main>
+      <!-- Filter btn -->
+      <div class="container mx-auto px-4 my-4">
+        <div class="flex justify-between my-4">
+              <h2 class="font-bold text-2xl text-[#002C5C]">Available Jobs</h2>
+              <p><span id="job-count"></span> Jobs</p>
+            </div>
+        <div class="flex gap-5">
+           <button
+          onclick="toggleStyle('all-filter-btn')"
+          class="bg-blue-500 text-white px-5 py-2"
+          id="all-filter-btn"
+        >
+          All
+        </button>
+        <button
+          onclick="toggleStyle('interview-filter-btn')"
+          class="bg-gray-300 px-5 py-2"
+          id="interview-filter-btn"
+        >
+         Interview
+        </button>
+        <button
+          onclick="toggleStyle('rejected-filter-btn')"
+          class="bg-gray-300 px-5 py-2"
+          id="rejected-filter-btn"
+        >
+         Rejected
+        </button
+        </div>
+      </div>
+      <!--all cards   -->
+      <section id="allcards-section">
+        <div  class="container mx-auto px-4 my-4">
+          <div id="cards-section" class="grid grid-cols-1 gap-4">
+              <div class=" p-6 hover:shadow shadow-blue-500 duration-300 flex justify-between">
+                <div class="space-y-3">
+                  <h2 class="company font-bold text-[#002C5C] text-2xl">WebFlow Agency</h2>
+                  <p class="position font-semibold text-gray-500">Web Designer & Developer</p>
+                  <p class="job-detaills">Los Angeles, CA• Part-time •$80,000 - $120,000</p>
+                  <span class="status-1 bg-gray-300 text-[#002C5C] p-2 inline-block my-2">NOT APPLIED</span>
+                  <p class="job-info">Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.</p>
+                  <div>
+                    <button  class="interview btn btn-primary btn-soft">Interview</button>
+                    <button class="rejected btn btn-error btn-soft">Rejected</button>
+                  </div>
+                </div>
+                <div><button class=" border-amber-800 px-2 text-red-500"><i class="fa-solid fa-trash-can"></i></button></div>
+            </div>
+            <!-- cart 2 -->
+              <div class=" p-6 hover:shadow shadow-blue-500 duration-300 flex justify-between">
+                <div class="space-y-3">
+                  <h2 class="company font-bold text-[#002C5C] text-2xl">Mobile First Corp</h2>
+                  <p class="position font-semibold text-gray-500">React Native Developer</p>
+                  <p class="job-detaills">Remote• Full-time • $130,000 - $175,000</p>
+                  <span class="status-1 bg-gray-300 text-[#002C5C] p-2 inline-block my-2 ">NOT APPLIED</span>
+                  <p class="job-info">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                  <div>
+                    <button  class="interview btn btn-primary btn-soft">Interview</button>
+                    <button class="rejected btn btn-error btn-soft">Rejected</button>
+                  </div>
+                </div>
+                <div><button class=" border-amber-800 px-2 text-red-500"><i class="fa-solid fa-trash-can"></i></button></div>
+            </div>
+            <!-- cart 3 -->
+              <div class=" p-6 hover:shadow shadow-blue-500 duration-300 flex justify-between">
+                <div class="space-y-3">
+                  <h2 class="company font-bold text-[#002C5C] text-2xl">DataViz Solutions</h2>
+                  <p class="position font-semibold text-gray-500">Data Visualization Specialist</p>
+                  <p class="job-detaills">Boston, MA •Full-time•$125,000 - $165,000</p>
+                  <span class=" status-1 bg-gray-300 text-[#002C5C] p-2 inline-block my-2">NOT APPLIED</span>
+                  <p class="job-info">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                  <div>
+                    <button  class="interview btn btn-primary btn-soft">Interview</button>
+                    <button  class="rejected btn btn-error btn-soft">Rejected</button>
+                  </div>
+                </div>
+                <div><button class=" border-amber-800 px-2 text-red-500"><i class="fa-solid fa-trash-can"></i></button></div>
+            </div>
+            <!-- cart 4 -->
+             <div class=" p-6 hover:shadow shadow-blue-500 duration-300 flex justify-between">
+                <div class="space-y-3">
+                  <h2 class="company font-bold text-[#002C5C] text-2xl">CloudFirst Inc</h2>
+                  <p class="position font-semibold text-gray-500">Backend Developer</p>
+                  <p class="job-detaills">Boston, MA •Full-time•$125,000 - $165,000</p>
+                  <span class="status-1 bg-gray-300 text-[#002C5C] p-2 inline-block my-2">NOT APPLIED</span>
+                  <p class="job-info">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                  <div>
+                    <button  class="interview btn btn-primary btn-soft">Interview</button>
+                    <button class="rejected btn btn-error btn-soft">Rejected</button>
+                  </div>
+                </div>
+                <div><button class=" border-amber-800 px-2 text-red-500"><i class="fa-solid fa-trash-can"></i></button></div>
+            </div>
+            <!-- cart 5 -->
+            <div class=" p-6 hover:shadow shadow-blue-500 duration-300 flex justify-between">
+                <div class="space-y-3">
+                  <h2 class="company font-bold text-[#002C5C] text-2xl">Innovation Labs</h2>
+                  <p class="position font-semibold text-gray-500">UI/UX Engineer</p>
+                  <p class="job-detaills">Boston, MA •Full-time•$125,000 - $165,000</p>
+                  <span class="status-1 bg-gray-300 text-[#002C5C] p-2 inline-block my-2">NOT APPLIED</span>
+                  <p class="job-info">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                  <div>
+                    <button  class="interview btn btn-primary btn-soft">Interview</button>
+                    <button class="rejected btn btn-error btn-soft">Rejected</button>
+                  </div>
+                </div>
+                <div><button class=" border-amber-800 px-2 text-red-500"><i class="fa-solid fa-trash-can"></i></button></div>
+            </div>
+            <!-- cart 6 -->
+             <div class=" p-6 hover:shadow shadow-blue-500 duration-300 flex justify-between">
+                <div class="space-y-3">
+                  <h2 class="company font-bold text-[#002C5C] text-2xl">MegaCorp Solutions</h2>
+                  <p class="position font-semibold text-gray-500">JavaScript Developer</p>
+                  <p class="job-detaills">Boston, MA •Full-time•$125,000 - $165,000</p>
+                  <span class="status-1 bg-gray-300 text-[#002C5C] p-2 inline-block my-2">NOT APPLIED</span>
+                  <p class="job-info">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                  <div>
+                    <button  class="interview btn btn-primary btn-soft">Interview</button>
+                    <button  class="rejected btn btn-error btn-soft">Rejected</button>
+                  </div>
+                </div>
+                <div><button class=" border-amber-800 px-2 text-red-500"><i class="fa-solid fa-trash-can"></i></button></div>
+            </div>
+            <!-- cart 7-->
+             <div class=" p-6 hover:shadow shadow-blue-500 duration-300 flex justify-between">
+                <div class="space-y-3">
+                  <h2 class="company font-bold text-[#002C5C] text-2xl">StartupXYZ</h2>
+                  <p class="position font-semibold text-gray-500">Full Stack Engineer</p>
+                  <p class="job-detaills">Boston, MA •Full-time•$125,000 - $165,000</p>
+                  <span class="status-1 bg-gray-300 text-[#002C5C] p-2 inline-block my-2">NOT APPLIED</span>
+                  <p class="job-info">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                  <div>
+                    <button  class="interview btn btn-primary btn-soft">Interview</button>
+                    <button class="interview btn btn-error btn-soft">Rejected</button>
+                  </div>
+                </div>
+                <div><button class=" border-amber-800 px-2 text-red-500"><i class="fa-solid fa-trash-can"></i></button></div>
+            </div>
+            <!-- cart 8 -->
+             <div class=" p-6 hover:shadow shadow-blue-500 duration-300 flex justify-between">
+                <div class="space-y-3">
+                  <h2 class="company font-bold text-[#002C5C] text-2xl">TechCorp Industries</h2>
+                  <p class="position font-semibold text-gray-500">Senior Frontend Developer</p>
+                  <p class="job-detaills">Boston, MA •Full-time•$125,000 - $165,000</p>
+                  <span class="status-1 bg-gray-300 text-[#002C5C] p-2 inline-block my-2">NOT APPLIED</span>
+                  <p class="job-info">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                  <div>
+                    <button  class="interview btn btn-primary btn-soft">Interview</button>
+                    <button  class="rejected btn btn-error btn-soft">Rejected</button>
+                  </div>
+                </div>
+                <div><button class=" border-amber-800 px-2 text-red-500"><i class="fa-solid fa-trash-can"></i></button></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- filterd section -->
+       <section class="hidden" id="filterd-section">
+        <div class="container mx-auto">
+          <div class="my-10" id="filter-container">
+
+          </div>
+          
+        </div>
+       </section>
+    </main>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
