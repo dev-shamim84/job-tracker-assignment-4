@@ -134,6 +134,9 @@ mainContainer.addEventListener("click", (event) => {
     rejectedRender();
     interviewRender();
     count();
+  } else if (event.target.classList.contains("dlt-button")) {
+    event.target.parentNode.parentNode.parentNode.remove();
+    count();
   }
 });
 const filterdContainer = document.getElementById("filter-container");
