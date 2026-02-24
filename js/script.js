@@ -164,7 +164,7 @@ function interviewRender() {
                     <button class="rejected btn btn-error btn-soft">Rejected</button>
                   </div>
                 </div>
-                <div><button class=" border-amber-800 px-2 text-red-500"><i class="fa-solid fa-trash-can"></i></button></div>
+                <div><button class="border rounded-full flex items-center h-[30px] w-[30px] border-amber-800 p-2 text-red-500"><i class=" dlt-button fa-solid fa-trash-can"></i></button></div>
   `;
     filterdContainer.appendChild(div);
   }
@@ -197,7 +197,7 @@ function rejectedRender() {
                     <button class="rejected btn btn-error btn-soft">Rejected</button>
                   </div>
                 </div>
-                <div><button class=" border-amber-800 px-2 text-red-500"><i class="fa-solid fa-trash-can"></i></button></div>
+               <div><button class="border rounded-full flex items-center h-[30px] w-[30px] border-amber-800 p-2 text-red-500"><i class=" dlt-button fa-solid fa-trash-can"></i></button></div>
   `;
       filterdContainer.appendChild(div);
     }
