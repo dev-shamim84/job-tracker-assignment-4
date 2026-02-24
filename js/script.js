@@ -1,6 +1,5 @@
 let interviewCountList = [];
 let rejectedCountList = [];
-let currentStatus = "all";
 
 const total = document.getElementById("total");
 const interview = document.getElementById("interview");
@@ -8,8 +7,8 @@ const rejected = document.getElementById("rejected");
 const jobCount = document.getElementById("job-count");
 const cardsSection = document.getElementById("cards-section");
 
-jobCount.innerText = cardsSection.children.length;
 function count() {
+  jobCount.innerText = cardsSection.children.length;
   total.innerText = cardsSection.children.length;
   interview.innerText = interviewCountList.length;
   rejected.innerText = rejectedCountList.length;
@@ -126,11 +125,9 @@ mainContainer.addEventListener("click", (event) => {
     if (!rejectedListExist) {
       rejectedCountList.push(jobInfo);
     }
-    console.log(interviewCountList);
     interviewCountList = interviewCountList.filter(
       (item) => item.companyName !== jobInfo.companyName
     );
-    console.log(interviewCountList);
     rejectedRender();
     interviewRender();
     count();
